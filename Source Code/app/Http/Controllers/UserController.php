@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Passenger;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -16,20 +18,24 @@ class UserController extends Controller
         }
         else if ($request->isMethod('POST')) {
 
-            $incomingDATA = $request->validate([
+            $incomingDATA =  $request->validate([
                 'email' => 'required',
                 'password' => 'required'
             ]);
 
             try {
-                $loginATTEMPT = auth()->attempt(['email' => $incomingDATA['email'], 'password', $incomingDATA['password']]);
-                if ($loginATTEMPT) {
+                $loginAttempt = auth()->attempt([
+                    'email' => $incomingDATA['email'],
+                    'password' => $incomingDATA['password']
+                ]);
+
+                if ($loginAttempt) {
                     $request->session()->regenerate();
 
-                    // Check Role Here ( logic )
+                    /* role logic here */
 
                 } else {
-                    return redirect('/')->with('error', 'Information Invalid');
+                    return redirect('/login')->with('error', 'Invalid Information');
                 }
             } catch (\Exception $e) {
                 dd($e->getMessage());
@@ -50,7 +56,9 @@ class UserController extends Controller
             return view('Authenticate.Passenger', $data);
         }
         else if ($request->isMethod('POST')) {
-            $incommingDATA = $request->validate([
+
+            /* Data Validating and Storing */
+            $incomingDATA = $request->validate([
                 'name' => 'required',
                 'email' => ['required', Rule::unique('users', 'email')],
                 'phone' => 'required',
@@ -58,8 +66,26 @@ class UserController extends Controller
                 'picture' => 'required',
                 'address' => 'required'
             ]);
-            $incommingDATA['user_type'] = "Passenger";
+            $incomingDATA['type'] = "passenger";
+            $incomingDATA['username'] = str_replace(' ', '-', $incomingDATA['name']) . "-" . time();
 
+            /* Handling Users Picture */
+            if ($request->hasFile("picture")) {
+                $file = $request->file("picture");
+                $newNAME = "img-" . time() . "." . $file->extension();
+                $file->move('uploads/users', $newNAME);
+                $incomingDATA['picture'] = $newNAME;
+            }
+
+            $user = User::create($incomingDATA);
+            auth()->login($user);
+
+            /* Saving Additional Data In Passengers Table */
+            $passenger = [
+                'user_id' => auth()->id(),
+                'phone' => $incomingDATA['phone']
+            ];
+            Passenger::create($passenger);
         }
     }
 

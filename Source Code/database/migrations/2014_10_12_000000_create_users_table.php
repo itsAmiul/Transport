@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('address');
             $table->string('picture');
             $table->string('type');
-            $table->string('user_id');
             $table->rememberToken();
             $table->timestamps();
         });

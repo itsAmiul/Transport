@@ -18,24 +18,24 @@
                 <span id="second" class="second text-xl bg-gray-200 text-gray-600 py-2 px-4 mr-2 border-2 border-gray-600">2</span>
             </div>
 
-            <form action="/passengerRegistration" method="POST" class="space-y-2">
+            <form action="/passengerRegistration" method="POST" class="space-y-2" enctype="multipart/form-data" >
                 @csrf
                 @method('POST')
 
+                <!-- First Step -->
                 <div class="space-y-2" id="firstStep" >
                     <input type="text" name="name" placeholder="Full Name" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="text" name="email" placeholder="Email Address" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="text" name="phone" placeholder="+212 06 00 00 00 00" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="password" name="password" placeholder="Password" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
-
                     <button id="nextStep" class="bg-gray-500 text-white font-[600] border-2 border-gray-600 w-[100%] outline-none p-2 text-left px-4" >Next Step</button>
                 </div>
 
+                <!-- Second Step -->
                 <div class="space-y-2 hidden" id="secondStep">
                     <label for="picture" >Add A Profile Picture :</label>
                     <input type="file" name="picture" id="picture" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="text" name="address" placeholder="Your Address" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
-
                     <button type="submit" class="bg-gray-500 text-white font-[600] border-2 border-gray-600 w-[100%] outline-none p-2 text-left px-4" >Sign Up </button>
                 </div>
             </form>

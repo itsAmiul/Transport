@@ -12,7 +12,7 @@
             <h1 class="font-[600] text-xl" >Create Your Account</h1>
             <span class="mb-4" >Welcome to our community ! Fasten your seatbelt and enjoy the ride as we navigate through a world of possibilities together.</span>
 
-            <form action="/driverRegistration" method="POST" class="space-y-2">
+            <form action="/driverRegistration" method="POST" class="space-y-2" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
 
