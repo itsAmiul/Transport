@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WebController::class, 'homePage']);
 
 /* Login */
-Route::match(['get', 'post'], '/login', [UserController::class, 'login']);
+Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login');
 
 /* Registration */
 Route::get('/RegistrationType', [UserController::class, 'chooseRegisterType']);

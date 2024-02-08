@@ -4,7 +4,7 @@
 
         {{-- Login Image --}}
         <div class="h-[100vh] relative bg-gray-200" >
-            <img src="http://127.0.0.1:8000/img/img/login_img.jpg" alt="login img" class="h-full" >
+            <img src="http://127.0.0.1:8000/img/img/img_3.jpg" alt="login img" class="h-full" >
         </div>
 
         {{-- Login Form --}}
