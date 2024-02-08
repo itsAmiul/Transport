@@ -15,13 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+/* Home Page */
 Route::get('/', [WebController::class, 'homePage']);
 
 /* Login */
-Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login');
+Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
 /* Registration */
 Route::get('/RegistrationType', [UserController::class, 'chooseRegisterType']);
 Route::match(['get', 'post'], '/passengerRegistration', [UserController::class, 'passengerRegistration']);
 Route::match(['get', 'post'], '/driverRegistration', [UserController::class, 'driverRegistration']);
+
+/* Log out */
+Route::match(['get', 'post'], '/logout', [UserController::class, 'logout'])->middleware('auth');

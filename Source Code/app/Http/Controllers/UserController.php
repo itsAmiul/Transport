@@ -25,15 +25,14 @@ class UserController extends Controller
             ]);
 
             try {
-                $loginAttempt = auth()->attempt([
-                    'email' => $incomingDATA['email'],
-                    'password' => $incomingDATA['password']
-                ]);
-
+                $loginAttempt = auth()->attempt(['email' => $incomingDATA['email'], 'password' => $incomingDATA['password']]);
                 if ($loginAttempt) {
                     $request->session()->regenerate();
 
-                    /* role logic here */
+                    $user = auth()->user();
+                    if ($user['type'] === 'passenger') {return redirect('/passenger');}
+                    else if ($user['type'] === 'driver') {return redirect('/driver');}
+                    else {return redirect('/admin');}
 
                 } else {
                     return redirect('/login')->with('error', 'Invalid Information');
@@ -68,11 +67,15 @@ class UserController extends Controller
                 'address' => 'required'
             ]);
 
-            $this->handleNewUser($request, $incomingDATA, 'passenger');
+            try {
+                $this->handleNewUser($request, $incomingDATA, 'passenger');
 
-            /* Saving Additional Data In Passengers Table */
-            $incomingDATA['user_id'] = auth()->id();
-            Passenger::create($incomingDATA);
+                /* Saving Additional Data In Passengers Table */
+                $incomingDATA['user_id'] = auth()->id();
+                Passenger::create($incomingDATA);
+            } catch (\Exception $e) {
+                dd($e->getMessage());
+            }
         }
     }
 
@@ -99,11 +102,16 @@ class UserController extends Controller
                 'payment_type' => 'required'
             ]);
 
-            $this->handleNewUser($request, $incomingDATA, 'driver');
+            try {
+                $this->handleNewUser($request, $incomingDATA, 'driver');
 
-            /* Saving Additional Data In Passengers Table */
-            $incomingDATA['user_id'] = auth()->id();
-            Driver::create($incomingDATA);
+                /* Saving Additional Data In Passengers Table */
+                $incomingDATA['user_id'] = auth()->id();
+                Driver::create($incomingDATA);
+
+            } catch (\Exception $e) {
+                dd($e->getMessage());
+            }
         }
     }
 
@@ -124,5 +132,17 @@ class UserController extends Controller
         /* Register The New User And Log Him In */
         $user = User::create($incomingDATA);
         auth()->login($user);
+    }
+
+    public function logout(Request $request)
+    {
+        try {
+            auth()->logout();
+            $request->session()->invalidate();
+            return redirect('/login');
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+
     }
 }

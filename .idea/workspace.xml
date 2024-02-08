@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58f32b01-2069-44bc-95bc-327ae6696eee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source Code/app/Models/Driver.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/public/js/steps.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Code/database/migrations/2024_02_08_153222_create_drivers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/database/migrations/2024_02_08_153222_create_drivers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Code/resources/views/Authenticate/Driver.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/resources/views/Authenticate/Driver.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/resources/views/Home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/resources/views/Home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +192,7 @@
       <updated>1707382593306</updated>
       <workItem from="1707382594396" duration="29560000" />
       <workItem from="1707422400330" duration="261000" />
-      <workItem from="1707422670948" duration="1105000" />
+      <workItem from="1707422670948" duration="4286000" />
     </task>
     <servers />
   </component>
@@ -203,38 +201,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php</url>
-          <line>46</line>
-          <properties>
-            <option name="className" value="\App\Http\Controllers\UserController" />
-            <option name="methodName" value="chooseRegisterType" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php</url>
-          <line>13</line>
-          <properties>
-            <option name="className" value="\App\Http\Controllers\UserController" />
-            <option name="methodName" value="login" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php</url>
-          <line>52</line>
-          <properties>
-            <option name="className" value="\App\Http\Controllers\UserController" />
-            <option name="methodName" value="passengerRegistration" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
