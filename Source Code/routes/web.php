@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [WebController::class, 'homePage']);
+
+/* Login */
+Route::match(['get', 'post'], '/login', [UserController::class, 'login']);
+
+/* Registration */
+Route::get('/RegistrationType', [UserController::class, 'chooseRegisterType']);
+Route::match(['get', 'post'], '/passengerRegistration', [UserController::class, 'passengerRegistration']);
+Route::match(['get', 'post'], '/driverRegistration', [UserController::class, 'driverRegistration']);
