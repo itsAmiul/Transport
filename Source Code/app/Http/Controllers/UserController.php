@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Driver;
 use App\Models\Passenger;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -66,26 +67,12 @@ class UserController extends Controller
                 'picture' => 'required',
                 'address' => 'required'
             ]);
-            $incomingDATA['type'] = "passenger";
-            $incomingDATA['username'] = str_replace(' ', '-', $incomingDATA['name']) . "-" . time();
 
-            /* Handling Users Picture */
-            if ($request->hasFile("picture")) {
-                $file = $request->file("picture");
-                $newNAME = "img-" . time() . "." . $file->extension();
-                $file->move('uploads/users', $newNAME);
-                $incomingDATA['picture'] = $newNAME;
-            }
-
-            $user = User::create($incomingDATA);
-            auth()->login($user);
+            $this->handleNewUser($request, $incomingDATA, 'passenger');
 
             /* Saving Additional Data In Passengers Table */
-            $passenger = [
-                'user_id' => auth()->id(),
-                'phone' => $incomingDATA['phone']
-            ];
-            Passenger::create($passenger);
+            $incomingDATA['user_id'] = auth()->id();
+            Passenger::create($incomingDATA);
         }
     }
 
@@ -97,6 +84,45 @@ class UserController extends Controller
         }
         else if ($request->isMethod('POST')) {
 
+            /* Data Validating and Storing */
+            $incomingDATA = $request->validate([
+                'name' => 'required',
+                'email' => ['required', Rule::unique('users', 'email')],
+                'phone' => 'required',
+                'password' => 'required',
+                'picture' => 'required',
+                'address' => 'required',
+                'availability' => 'required',
+                'car_model' => 'required',
+                'car_number' => 'required',
+                'description' => 'required',
+                'payment_type' => 'required'
+            ]);
+
+            $this->handleNewUser($request, $incomingDATA, 'driver');
+
+            /* Saving Additional Data In Passengers Table */
+            $incomingDATA['user_id'] = auth()->id();
+            Driver::create($incomingDATA);
         }
+    }
+
+    public function handleNewUser($request, $incomingDATA, $role): void
+    {
+        /* Setup Additional Information */
+        $incomingDATA['type'] = $role;
+        $incomingDATA['username'] = str_replace(' ', '-', $incomingDATA['name']) . "-" . time();
+
+        /* Handling Users Picture */
+        if ($request->hasFile("picture")) {
+            $file = $request->file("picture");
+            $newNAME = "img-" . time() . "." . $file->extension();
+            $file->move('uploads/users', $newNAME);
+            $incomingDATA['picture'] = $newNAME;
+        }
+
+        /* Register The New User And Log Him In */
+        $user = User::create($incomingDATA);
+        auth()->login($user);
     }
 }

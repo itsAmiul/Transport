@@ -44,18 +44,11 @@
         </div>
     </section>
 
+    <script src="http://127.0.0.1:8000/js/steps.js" ></script>
     <script>
         const form = document.querySelector('form');
         const nextStep = document.getElementById('nextStep');
-
-        nextStep.addEventListener('click', (event) => {
-            event.preventDefault();
-            document.getElementById('firstStep').classList.add('hidden');
-            document.getElementById('secondStep').classList.remove('hidden');
-
-            document.getElementById('second').classList.add('bg-gray-600');
-            document.getElementById('second').classList.add('text-white');
-        });
+        multipleSteps(nextStep, 'firstStep', 'secondStep', 'second');
     </script>
 
 @endsection

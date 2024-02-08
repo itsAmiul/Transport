@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('availability');
             $table->string('car_number');
-            $table->string('car-model');
+            $table->string('car_model');
             $table->longText('description');
             $table->longText('payment_type');
             $table->timestamps();

@@ -27,7 +27,6 @@
                     <input type="text" name="email" placeholder="Email Address" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="text" name="phone" placeholder="+212 06 00 00 00 00" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="password" name="password" placeholder="Password" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
-
                     <button id="nextStep" class="bg-gray-500 text-white font-[600] border-2 border-gray-600 w-[100%] outline-none p-2 text-left px-4" >Next Step</button>
                 </div>
 
@@ -35,7 +34,6 @@
                     <label for="picture" >Add A Profile Picture :</label>
                     <input type="file" name="picture" id="picture" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                     <input type="text" name="address" placeholder="Your Address" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
-
                     <button id="nextStep_2" class="bg-gray-500 text-white font-[600] border-2 border-gray-600 w-[100%] outline-none p-2 text-left px-4" >Next Step</button>
                 </div>
 
@@ -45,14 +43,18 @@
                         <option value="Available" >Available</option>
                         <option value="Non Available"  >Non Available</option>
                     </select>
+
                     <input type="text" name="car_number" placeholder="Licence plate" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
+
                     <select name="car_model" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                         <option disabled selected >Select Your Car Model</option>
                         <option value="xl" >xl</option>
                         <option value="2xl" >2 xl</option>
                         <option value="3xl" >3 xl</option>
                     </select>
+
                     <textarea placeholder="Profile Description" name="description" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4"></textarea>
+
                     <select name="payment_type" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                         <option disabled selected >Select Your Favored Payment Type</option>
                         <option value="Card" >Card</option>
@@ -67,28 +69,15 @@
         </div>
     </section>
 
+    <script src="http://127.0.0.1:8000/js/steps.js" ></script>
     <script>
+
         const form = document.querySelector('form');
         const nextStep = document.getElementById('nextStep');
         const nextStep_2 = document.getElementById('nextStep_2');
 
-        nextStep.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('firstStep').classList.add('hidden');
-            document.getElementById('secondStep').classList.remove('hidden');
-
-            document.getElementById('second').classList.add('bg-gray-600');
-            document.getElementById('second').classList.add('text-white');
-        });
-
-        nextStep_2.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('secondStep').classList.add('hidden');
-            document.getElementById('thirdStep').classList.remove('hidden');
-
-            document.getElementById('third').classList.add('bg-gray-600');
-            document.getElementById('third').classList.add('text-white');
-        });
+        multipleSteps(nextStep, 'firstStep', 'secondStep', 'second');
+        multipleSteps(nextStep_2, 'secondStep', 'thirdStep', 'third');
     </script>
 
 @endsection
