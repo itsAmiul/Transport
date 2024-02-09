@@ -31,7 +31,7 @@ class UserController extends Controller
 
                     $user = auth()->user();
                     if ($user['type'] === 'passenger') {return redirect('/passenger');}
-                    else if ($user['type'] === 'driver') {return redirect('/driver');}
+                    else if ($user['type'] === 'driver') {return redirect('/driver/dashboard');}
                     else {return redirect('/admin');}
 
                 } else {

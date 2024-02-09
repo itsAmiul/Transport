@@ -5,9 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58f32b01-2069-44bc-95bc-327ae6696eee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Files/Uml/Untitled document.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Files/Uml/uo_arabic_doc.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Files/Uml/uo_people_arabic_file.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/app/Http/Controllers/DriverController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/confirm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/dashboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/reserved.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/setting_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/setting_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/upassword.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/verified.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/public/uploads/users/img-1707473349.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/Driver/Dashboard.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/Driver/Profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/Driver/Reservation.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/Driver/Settings.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/layout/driver/headNav.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/layout/driver/navBar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Code/resources/views/Home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/resources/views/Home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/resources/views/layout/Html.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/resources/views/layout/Html.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source Code/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -159,7 +179,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/var/www/html/receiptBrief&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/var/www/html/Transport&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -192,7 +212,10 @@
       <updated>1707382593306</updated>
       <workItem from="1707382594396" duration="29560000" />
       <workItem from="1707422400330" duration="261000" />
-      <workItem from="1707422670948" duration="4286000" />
+      <workItem from="1707422670948" duration="6607000" />
+      <workItem from="1707466235211" duration="1053000" />
+      <workItem from="1707472297907" duration="16394000" />
+      <workItem from="1707508225854" duration="1854000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,10 @@ Route::match(['get', 'post'], '/driverRegistration', [UserController::class, 'dr
 
 /* Log out */
 Route::match(['get', 'post'], '/logout', [UserController::class, 'logout'])->middleware('auth');
+
+
+/* Driver Routes */
+Route::get('/driver/dashboard', [DriverController::class, 'dashboard']);
+Route::match(['get', 'post'], '/driver/reservation', [DriverController::class, 'reservation']);
+Route::match(['get', 'post'], '/driver/profile', [DriverController::class, 'profile']);
+Route::match(['get', 'post'], '/driver/settings', [DriverController::class, 'settings']);

@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Fav Icon -->
-    <link rel="icon" href="http://127.0.0.1:8000/img/logo/icon.png" >
+    <link rel="icon" href="http://127.0.0.1:8000/img/logo/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="http://127.0.0.1:8000/img/logo/icon.png" type="image/x-icon">
 
     <!-- Tailwind Css -->
     <script src="https://cdn.tailwindcss.com"></script>
