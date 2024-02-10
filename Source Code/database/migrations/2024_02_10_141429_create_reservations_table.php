@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('driver_user_id')->constrained('drivers');
             $table->foreignId('route_id')->constrained();
             $table->string('date');
-            $table->string('status');
+            $table->string('status')->default('Waiting Confirmation');
             $table->timestamps();
         });
     }

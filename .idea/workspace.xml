@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58f32b01-2069-44bc-95bc-327ae6696eee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source Code/app/Http/Controllers/PassengerController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/app/Models/Reservation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/database/migrations/2024_02_10_141422_create_routes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/database/migrations/2024_02_10_141429_create_reservations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/public/img/icons/AiCE C1 Program Requirements.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/Passenger/Profile.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/Passenger/Reservation.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source Code/resources/views/layout/passenger/headNav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Code/resources/views/Driver/Reservation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/resources/views/Driver/Reservation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source Code/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source Code/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/Source Code/app/Models/Reservation.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +194,7 @@
       <workItem from="1707466235211" duration="1053000" />
       <workItem from="1707472297907" duration="16394000" />
       <workItem from="1707508225854" duration="2567000" />
-      <workItem from="1707563755636" duration="8885000" />
+      <workItem from="1707563755636" duration="9591000" />
     </task>
     <servers />
   </component>
