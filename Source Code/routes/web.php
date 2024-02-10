@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\PassengerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,9 @@ Route::get('/driver/dashboard', [DriverController::class, 'dashboard']);
 Route::match(['get', 'post'], '/driver/reservation', [DriverController::class, 'reservation']);
 Route::match(['get', 'post'], '/driver/profile', [DriverController::class, 'profile']);
 Route::match(['get', 'post'], '/driver/settings', [DriverController::class, 'settings']);
+
+
+/* Passenger Routes */
+Route::match(['get', 'post'],'/passenger/profile', [PassengerController::class, 'profile']);
+Route::match(['get', 'post'],'/passenger/reservation', [PassengerController::class, 'reservation']);
+

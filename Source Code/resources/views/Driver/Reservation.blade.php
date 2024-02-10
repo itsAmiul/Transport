@@ -13,7 +13,6 @@
             @include('layout.driver.headNav')
 
             <div class="px-12 w-full py-4 space-y-4" >
-
                 <div class="w-full bg-gray-500 text-white p-4 border-2 border-gray-800" >
                     <h1 class="text-lg font-[500]" >Check All Your Reservation Details On THis Page, And don't forget to start Accepting Them to start making Money !</h1>
                 </div>
@@ -34,7 +33,7 @@
                         </div>
                         <div class="w-[45%]" >
                             <h1><span class="font-[600]" >Reserved Date :</span> 2024-02-08 20:30:08</h1>
-                            <h1><span class="font-[600]" >Status :</span> Confirmed</h1>
+                            <h1><span class="font-[600]" >Status :</span> <span class="bg-green-500 text-white border-2 border-green-700 py-[1px] px-2" >Confirmed</span></h1>
                             <h1><span class="font-[600]" >Departure :</span> Safi, Lala Hnia</h1>
                             <h1><span class="font-[600]" >Destination :</span> El Jadida</h1>
                         </div>
@@ -43,10 +42,15 @@
                             <a href="" ><img src="http://127.0.0.1:8000/img/icons/delete.png" alt="Profile picture" class="w-[50px]" ></a>
                         </div>
                     </div>
+
+                    <div class="w-full" >
+                        {{-- Pagination --}}
+                    </div>
                 </div>
 
-                <div class="w-full" >
-                    {{-- Pagination --}}
+                <div class="border-2 border-gray-600 px-12 py-4 bg-gray-200" >
+                    <p class="text-xl font-[600]" >We Are Sorry, But You Have No Reservation Yet !! </p>
+                    <span>Wait Until Someone Make A Reservation</span>
                 </div>
 
             </div>
