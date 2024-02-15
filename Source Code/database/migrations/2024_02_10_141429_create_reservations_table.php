@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('passenger_user_id')->constrained('passengers');
-            $table->foreignId('driver_user_id')->constrained('drivers');
-            $table->foreignId('route_id')->constrained();
+            $table->foreignId('passenger_user_id')->constrained('passengers')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('driver_user_id')->constrained('drivers')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('destination_remember_key')->constrained('destinations')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('date');
             $table->string('status')->default('Waiting Confirmation');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

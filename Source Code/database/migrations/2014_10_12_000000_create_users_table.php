@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('picture');
             $table->string('type');
+            $table->boolean('is_valid')->default(false);
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

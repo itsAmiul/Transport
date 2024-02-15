@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Driver;
 use App\Models\Passenger;
 use App\Models\User;
+use App\Notifications\NewLogin;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Notifications\NewReservation;
 
 class UserController extends Controller
 {
@@ -30,8 +32,11 @@ class UserController extends Controller
                     $request->session()->regenerate();
 
                     $user = auth()->user();
-                    if ($user['type'] === 'passenger') {return redirect('/passenger');}
-                    else if ($user['type'] === 'driver') {return redirect('/driver/dashboard');}
+                    $ip = $request->ip();
+                    $user->notify(new NewLogin($ip));
+
+                    if ($user['type'] === 'passenger') {return redirect('/passenger/profile')->with('success', 'Login Successfully !!');}
+                    else if ($user['type'] === 'driver') {return redirect('/driver/dashboard')->with('success', 'Login Successfully ');}
                     else {return redirect('/admin');}
 
                 } else {
@@ -73,6 +78,8 @@ class UserController extends Controller
                 /* Saving Additional Data In Passengers Table */
                 $incomingDATA['user_id'] = auth()->id();
                 Passenger::create($incomingDATA);
+
+                return redirect('/passenger/profile')->with('success', 'Your Account Was Created Successfully, Are You Ready To Make You First Reservation !!');
             } catch (\Exception $e) {
                 dd($e->getMessage());
             }
@@ -82,7 +89,10 @@ class UserController extends Controller
     public function driverRegistration(Request $request)
     {
         if ($request->isMethod('GET')) {
-            $data = ['pageTitle' => 'Driver Registration Page'];
+            $data = [
+                'pageTitle' => 'Driver Registration Page',
+                'city' => ['Casablanca','Rabat','Fes','Marrakech','Agadir','Tangier','Meknes','Oujda','Kenitra','Tetouan','Safi','El Jadida','Nador','Beni Mellal','Khouribga']
+            ];
             return view('Authenticate.Driver', $data);
         }
         else if ($request->isMethod('POST')) {
@@ -94,12 +104,12 @@ class UserController extends Controller
                 'phone' => 'required',
                 'password' => 'required',
                 'picture' => 'required',
+                'location' => 'required',
                 'address' => 'required',
-                'availability' => 'required',
                 'car_model' => 'required',
                 'car_number' => 'required',
                 'description' => 'required',
-                'payment_type' => 'required'
+                'payment_type' => 'required',
             ]);
 
             try {
@@ -108,6 +118,8 @@ class UserController extends Controller
                 /* Saving Additional Data In Passengers Table */
                 $incomingDATA['user_id'] = auth()->id();
                 Driver::create($incomingDATA);
+
+                return redirect('/driver/dashboard')->with('success', 'Your Account Was Created Successfully, Are You Ready To Start Making Money !!');
 
             } catch (\Exception $e) {
                 dd($e->getMessage());
@@ -139,10 +151,9 @@ class UserController extends Controller
         try {
             auth()->logout();
             $request->session()->invalidate();
-            return redirect('/login');
+            return redirect()->back();
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
-
     }
 }

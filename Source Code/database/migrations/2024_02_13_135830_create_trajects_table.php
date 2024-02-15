@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('routes', function (Blueprint $table) {
+        Schema::create('trajects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('driver_id')->constrained('drivers')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('departure');
             $table->string('destination');
+            $table->unsignedDecimal('estimated_time');
+            $table->string('price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('routes');
+        Schema::dropIfExists('trajects');
     }
 };

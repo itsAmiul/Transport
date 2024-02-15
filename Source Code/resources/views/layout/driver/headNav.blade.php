@@ -2,9 +2,9 @@
 
     {{-- Driver Profile --}}
     <div class="flex items-center gap-x-2">
-        <img src="http://127.0.0.1:8000/img/icons/profile.png" alt="Settings Img" class="w-[60px]" >
+        <img src="http://127.0.0.1:8000/uploads/users/{{ $userPROFILE[0]->picture }}" alt="Settings Img" class="w-[60px] rounded-full" >
         <span class="font-[500] text-xl" >
-            <a href="/driver/profile" >Driver Name</a>
+            <a href="/driver/profile" >{{ $userPROFILE[0]->name }}</a>
         </span>
     </div>
 
@@ -14,6 +14,6 @@ I
         @csrf
         @method('POST')
 
-        <button type="submit" class="bg-red-500 text-white font-[600] border-2 border-red-600 outline-none p-2 px-4 hover:bg-red-400"  >Log out</button>
+        <button onclick="return confirm('Are you sure you want to Log Out ?')" type="submit" class="bg-red-500 text-white font-[600] border-2 border-red-600 outline-none p-2 px-4 hover:bg-red-400"  >Log out</button>
     </form>
 </nav>

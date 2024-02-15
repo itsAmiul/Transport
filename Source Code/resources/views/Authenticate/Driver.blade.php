@@ -38,13 +38,14 @@
                 </div>
 
                 <div class="space-y-2 hidden" id="thirdStep" >
-                    <select name="availability" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
-                        <option disabled selected >Select Your Status</option>
-                        <option value="Available" >Available</option>
-                        <option value="Non Available"  >Non Available</option>
-                    </select>
-
                     <input type="text" name="car_number" placeholder="Licence plate" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
+
+                    <select name="location" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4">
+                        <option disabled selected >Select Favorite Work City</option>
+                        @foreach($city as $cty)
+                            <option value="{{$cty}}" >{{$cty}}</option>
+                        @endforeach
+                    </select>
 
                     <select name="car_model" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
                         <option disabled selected >Select Your Car Model</option>

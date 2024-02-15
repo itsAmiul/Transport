@@ -18,7 +18,7 @@
         <form action="/logout" method="POST" >
             @csrf
             @method('POST')
-            <button type="submit" class="bg-red-500 text-white font-[600] border-2 border-red-600 outline-none p-2 px-4 hover:bg-red-400"  >Log out</button>
+            <button onclick="return confirm('Are you sure you want to Log Out ?')" type="submit" class="bg-red-500 text-white font-[600] border-2 border-red-600 outline-none p-2 px-4 hover:bg-red-400"  >Log out</button>
         </form>
     </section>
 </nav>

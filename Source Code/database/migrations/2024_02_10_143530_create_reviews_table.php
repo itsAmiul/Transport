@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reservation_id')->constrained('reservations');
+            $table->foreignId('reservation_id')->constrained('reservations')->cascadeOnDelete()->cascadeOnUpdate();
             $table->longText('message');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,11 +18,16 @@
                     <h1 class="text-lg font-[500]" >Update your Password if needed easily by clicking on the 'Update button' located in the bottom of the page .</h1>
                 </div>
 
-                <form action="/user/updatePassword" method="POST" class="flex flex-wrap justify-between gap-2 border-2 border-gray-800 p-4" enctype="multipart/form-data" >
+                @include('layout.sucess')
+
+                <form action="/driver/settings" method="POST" class="flex flex-wrap justify-between gap-2 border-2 border-gray-800 p-4" enctype="multipart/form-data" >
                     @csrf
                     @method('PATCH')
 
-                    <input type="password" name="password" value="Password" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
+                    <input type="password" name="password" placeholder="Update Password" class="border-2 border-gray-600 w-[100%] outline-none p-2 px-4" >
+                    @error('password')
+                        <div class="w-[100%] text-red-500" >{{ $message }}</div>
+                    @enderror
                     <button type="submit" class="bg-gray-500 text-white font-[600] border-2 border-gray-600 w-[48%] outline-none p-2 text-left px-4" > Update Your Password </button>
                 </form>
             </div>

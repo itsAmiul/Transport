@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();;
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('location');
             $table->string('phone');
-            $table->string('availability');
             $table->string('car_number');
             $table->string('car_model');
             $table->longText('description');
-            $table->longText('payment_type');
+            $table->unsignedInteger('rating')->default(0);
+            $table->string('status')->default('Available');
+            $table->string('payment_type');
             $table->timestamps();
         });
     }

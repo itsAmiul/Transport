@@ -121,6 +121,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="share" level="application" />
     <orderEntry type="library" name="steps" level="application" />
   </component>
 </module>
