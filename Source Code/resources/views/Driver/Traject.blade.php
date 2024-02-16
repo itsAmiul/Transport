@@ -51,6 +51,13 @@
                                     {{ $route->price }} Dh<br>
                                 </div>
                                 <div class="w-[20%] flex items-center gap-x-2" >
+                                    <form method="POST" action="/traject/delete/{{ $route->id }}" >
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="p-2" onclick="return confirm('Are You Shure You Want to delete this reservation ?')" >
+                                            <img src="http://127.0.0.1:8000/img/icons/delete.png" alt="Profile picture" class="w-[50px]" >
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         @endforeach

@@ -18,7 +18,7 @@
                 <span id="second" class="second text-xl bg-gray-200 text-gray-600 py-2 px-4 mr-2 border-2 border-gray-600">2</span>
             </div>
 
-            <form action="/passengerRegistration" method="POST" class="space-y-2" enctype="multipart/form-data" >
+            <form action="/passenger/registration" method="POST" class="space-y-2" enctype="multipart/form-data" >
                 @csrf
                 @method('POST')
 

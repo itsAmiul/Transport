@@ -23,7 +23,7 @@
                 <button type="submit" class="bg-gray-500 text-white font-[600] border-2 border-gray-600 w-[100%] outline-none p-2 text-left px-4" >Login </button>
             </form>
 
-            <h1 class="text-right font-[500]" >Don't Have An Account ? <a href="/RegistrationType" class="underline text-blue-800">Create One !</a></h1>
+            <h1 class="text-right font-[500]" >Don't Have An Account ? <a href="/register" class="underline text-blue-800">Create One !</a></h1>
         </div>
     </section>
 @endsection

@@ -27,9 +27,9 @@ Route::middleware('guest')->group(function () {
     Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login');
 
     /* Registration */
-    Route::get('/RegistrationType', [UserController::class, 'chooseRegisterType']);
-    Route::match(['get', 'post'], '/passengerRegistration', [UserController::class, 'passengerRegistration']);
-    Route::match(['get', 'post'], '/driverRegistration', [UserController::class, 'driverRegistration']);
+    Route::get('/register', [UserController::class, 'chooseRegisterType']);
+    Route::match(['get', 'post'], '/passenger/registration', [UserController::class, 'passengerRegistration']);
+    Route::match(['get', 'post'], '/driver/registration', [UserController::class, 'driverRegistration']);
 });
 
 /* Log out */
@@ -42,6 +42,7 @@ Route::middleware(['auth', 'userAccess:driver'])->group(function () {
     Route::match(['get', 'post'], '/driver/traject', [DriverController::class, 'routes']);
     Route::match(['get', 'put'], '/driver/profile', [DriverController::class, 'profile']);
     Route::match(['get', 'patch'], '/driver/settings', [DriverController::class, 'settings']);
+    Route::match(['get', 'post', 'delete'], '/traject/delete/{id}', [DriverController::class, 'deleteTraject']);
 });
 
 /* Passenger Routes */
@@ -55,6 +56,7 @@ Route::middleware(['auth', 'userAccess:driver'])->group(function () {
     Route::match(['get', 'put'], '/reservation/confirm/{id}', [ReservationController::class, 'confirmation']);
     Route::match(['get', 'put'], '/reservation/cancel/{id}', [ReservationController::class, 'cancel']);
     Route::match(['get', 'delete'], '/reservation/delete/{id}', [ReservationController::class, 'delete']);
+    Route::match(['get', 'put'], '/reservation/done/{id}', [ReservationController::class, 'done']);
 });
 
 /* Website Routes */
@@ -66,3 +68,5 @@ Route::middleware(['auth', 'userAccess:passenger'])->group(function () {
     Route::match(['get', 'post'], '/reservation/create/{driverId}', [ReservationController::class, 'makeReservation']);
     Route::match(['get', 'delete'], '/reservation/passenger/delete/{id}', [ReservationController::class, 'passengerDelete']);
 });
+
+Route::get('/pdf/{id}', [App\Http\Controllers\PDFController::class, 'generatePDF']);

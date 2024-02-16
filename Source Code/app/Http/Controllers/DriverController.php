@@ -15,9 +15,16 @@ class DriverController extends Controller
     {
         if ($request->isMethod('GET')) {
 
-            $userDATA = User::where('id', auth()->user()->getAuthIdentifier())->get();
+            $userDATA = User::where('id', auth()->id())->get();
             $userPROFILE = User::where('id', auth()->user()->getAuthIdentifier())->select('users.picture', 'users.name')->get();
-            $reservationCOUNT = Reservation::count();
+
+            $id = DB::table('users')
+                ->join('drivers', 'drivers.user_id', '=', 'users.id')
+                ->where('users.id', '=', auth()->id())
+                ->select('drivers.id')
+                ->get();
+
+            $reservationCOUNT = Reservation::where('driver_user_id', '=', $id[0]->id)->count();
 
             $userSTATUS = Driver::where('user_id', '=', auth()->id())->select('status')->get();
 
@@ -174,5 +181,14 @@ class DriverController extends Controller
             User::where('id', auth()->id())->update($incomingDATA);
             return back()->with('success', 'Profile Updated Successfully !');
         }
+    }
+
+
+    public function deleteTraject(Request $request, $id)
+    {
+        $traject = Traject::where('id', '=', $id);
+        $traject->delete();
+
+        return back()->with('success', 'Traject Deleted Successfully');
     }
 }

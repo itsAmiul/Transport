@@ -25,7 +25,7 @@
         @else
             <a class="" href="/drivers" >Drivers</a>
             <a href="/login" class="bg-gray-200 text-gray-500 font-[600] border-2 border-gray-700 outline-none p-2 px-4 hover:bg-gray-400" >Login</a>
-            <a href="/RegistrationType" class="bg-gray-500 text-white font-[600] border-2 border-gray-700 outline-none p-2 px-4 hover:bg-gray-400" >Sign Up</a>
+            <a href="/register" class="bg-gray-500 text-white font-[600] border-2 border-gray-700 outline-none p-2 px-4 hover:bg-gray-400" >Sign Up</a>
         @endauth
     </section>
 </nav>

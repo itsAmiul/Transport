@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="w-[25%] flex items-center gap-x-2" >
                                         @if($reservation->status === 'Confirmed')
-                                            <span class="bg-red-500 text-white border-2 border-red-700 py-[1px] px-2" >Confirmed Reservation Can not be deleted</span>
+                                            <a href="/pdf/{{ $reservation->id }}" class="bg-green-500 text-white border-2 border-green-700 py-[1px] px-2" >Download Receipt</a>
                                         @else
                                             <form method="POST" action="/reservation/passenger/delete/{{ $reservation->id }}" >
                                                 @csrf

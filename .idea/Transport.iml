@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Source Code/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/Source Code/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/Source Code/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/carbonphp/carbon-doctrine-types" />
       <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/composer" />
@@ -118,6 +120,13 @@
       <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/barryvdh/laravel-dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/milon/barcode" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/Source Code/vendor/sabberworm/php-css-parser" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

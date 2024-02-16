@@ -58,15 +58,23 @@
                                         <form method="POST" action="/reservation/cancel/{{ $reservation->id }}" >
                                             @csrf
                                             @method('put')
-                                            <button type="submit" onclick="return confirm('Are You Shure You Want to cancel this reservation ?')" class="hover:bg-red-200 hover:text-red-800 bg-red-500 text-white border-2 border-red-700  px-4 py-2" >Cancel Confirmation</button>
+                                            <button type="submit" onclick="return confirm('Are You Shure You Want to cancel this reservation ?')" class="hover:bg-red-200 hover:text-red-800 bg-red-500 text-white border-2 border-red-700  px-4 py-2" >Cancel</button>
                                         </form>
+
+                                        <form method="POST" action="/reservation/done/{{ $reservation->id }}" >
+                                            @csrf
+                                            @method('put')
+                                            <button type="submit" onclick="return confirm('Are You Shure You Want to FInish this reservation ?')" class="hover:bg-green-200 hover:text-green-800 bg-green-500 text-white border-2 border-green-700  px-4 py-2" >Done</button>
+                                        </form>
+
+                                    @elseif($reservation->status === 'Done')
+                                        <span class="bg-green-500 border-2 border-green-800 text-white px-4 py-2" >This reservation is finished</span>
                                     @else
                                         <form method="POST" action="/reservation/confirm/{{ $reservation->id }}" >
                                             @csrf
                                             @method('put')
                                             <button onclick="return confirm('Are You Shure You Want to confirm this reservation ?')"  type="submit" class="hover:bg-green-200 hover:text-green-800 bg-green-500 border-2 border-green-800 text-white px-4 py-2" >Confirm</button>
                                         </form>
-
                                         <form method="POST" action="/reservation/delete/{{ $reservation->id }}" >
                                             @csrf
                                             @method('delete')
